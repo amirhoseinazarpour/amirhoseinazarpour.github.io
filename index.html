@@ -72,20 +72,20 @@
   .hero-photo{
     position:absolute;
     top:60px;
-    right:0;
-    width:180px;
-    height:180px;
-    border-radius:50%;
+    right:-20px;
+    width:240px;
+    height:240px;
+    border-radius:12px;
     object-fit:cover;
-    object-position:center 20%;
+    object-position:center;
     border:3px solid var(--paper);
-    box-shadow:0 0 0 1px var(--rule), 0 6px 24px rgba(22,24,29,0.12);
+    box-shadow:0 0 0 1px var(--rule), 0 8px 28px rgba(22,24,29,0.15);
     z-index:2;
   }
   .hero h1, .hero-role, .hero-meta, .hero-links, .hero-kicker{
     position:relative;
     z-index:3;
-    max-width:calc(100% - 210px);
+    max-width:calc(100% - 270px);
   }
 
   .hero-kicker{font-size:15px;color:var(--brass);font-style:italic;font-family:'Fraunces',serif;margin:0 0 10px 0;}
@@ -181,8 +181,8 @@
     .hero-photo{
       position:static;
       display:block;
-      width:130px;
-      height:130px;
+      width:180px;
+      height:180px;
       margin:0 0 20px 0;
     }
     .hero h1, .hero-role, .hero-meta, .hero-links, .hero-kicker{
