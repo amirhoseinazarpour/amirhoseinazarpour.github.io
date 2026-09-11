@@ -68,9 +68,29 @@
   /* ---------- hero ---------- */
   .hero{padding:72px 0 56px 0;position:relative;border-bottom:1px solid var(--rule);}
   .hero-art{position:absolute;top:-10px;right:-10px;width:230px;height:230px;opacity:0.55;pointer-events:none;}
+
+  .hero-photo{
+    position:absolute;
+    top:60px;
+    right:0;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+    object-position:center 20%;
+    border:3px solid var(--paper);
+    box-shadow:0 0 0 1px var(--rule), 0 6px 24px rgba(22,24,29,0.12);
+    z-index:2;
+  }
+  .hero h1, .hero-role, .hero-meta, .hero-links, .hero-kicker{
+    position:relative;
+    z-index:3;
+    max-width:calc(100% - 210px);
+  }
+
   .hero-kicker{font-size:15px;color:var(--brass);font-style:italic;font-family:'Fraunces',serif;margin:0 0 10px 0;}
-  .hero h1{font-size:44px;line-height:1.12;margin:0 0 14px 0;max-width:9.5em;}
-  .hero-role{font-size:18px;color:var(--ink-soft);margin:0 0 22px 0;max-width:30em;}
+  .hero h1{font-size:44px;line-height:1.12;margin:0 0 14px 0;}
+  .hero-role{font-size:18px;color:var(--ink-soft);margin:0 0 22px 0;}
   .hero-meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14.5px;color:var(--ink-soft);margin-bottom:22px;}
   .hero-meta span{display:inline-flex;align-items:center;gap:6px;}
   .hero-links{display:flex;flex-wrap:wrap;gap:16px;font-size:14.5px;}
@@ -157,7 +177,17 @@
   @media (max-width:640px){
     body{font-size:16px;}
     .hero h1{font-size:34px;}
-    .hero-art{width:150px;height:150px;top:-4px;}
+    .hero-art{width:150px;height:150px;top:-4px;opacity:0.25;}
+    .hero-photo{
+      position:static;
+      display:block;
+      width:130px;
+      height:130px;
+      margin:0 0 20px 0;
+    }
+    .hero h1, .hero-role, .hero-meta, .hero-links, .hero-kicker{
+      max-width:100%;
+    }
     .nav-links{
       position:fixed;top:53px;left:0;right:0;background:var(--paper);
       flex-direction:column;gap:0;border-bottom:1px solid var(--rule);
@@ -192,6 +222,7 @@
 <main id="top">
 
   <section class="hero" id="about">
+    <img src="profile.jpg" alt="Amirhosein Azarpour" class="hero-photo">
     <svg class="hero-art" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
       <path d="M0,140 C30,80 45,180 70,110 C95,40 110,160 140,90 C160,45 175,100 200,70" fill="none" stroke="#2b3a67" stroke-width="1.4" opacity="0.55"/>
       <path d="M0,110 C25,150 50,60 75,130 C100,190 120,60 150,120 C170,155 185,90 200,120" fill="none" stroke="#a97d3f" stroke-width="1.4" opacity="0.5"/>
@@ -431,7 +462,6 @@
 </footer>
 
 <script>
-  // mobile nav toggle
   var toggle = document.getElementById('navToggle');
   var links = document.getElementById('navLinks');
   toggle.addEventListener('click', function(){
@@ -441,7 +471,6 @@
     a.addEventListener('click', function(){ links.classList.remove('open'); });
   });
 
-  // scroll-spy active link
   var sections = document.querySelectorAll('main section[id]');
   var navA = document.querySelectorAll('.nav-links a');
   var spy = function(){
