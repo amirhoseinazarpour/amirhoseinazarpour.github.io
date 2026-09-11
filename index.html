@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amirhosein Azarpour</title>
+<meta name="description" content="Amirhosein Azarpour — M.Sc. student in Data Mining, Shahid Beheshti University. Research on Kolmogorov-Arnold Networks, medical AI, and efficient deep learning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f5f4ef;
+    --paper-dim:#ecebe4;
+    --ink:#16181d;
+    --ink-soft:#4a4d55;
+    --rule:#d9d6cb;
+    --indigo:#2b3a67;
+    --indigo-soft:#5b6a9a;
+    --brass:#a97d3f;
+    --brass-soft:#c9a06b;
+    --maxw:700px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--indigo);color:var(--paper);}
+  a{color:var(--indigo);text-decoration-color:var(--indigo-soft);text-underline-offset:3px;}
+  a:hover{color:var(--brass);}
+  h1,h2,h3{font-family:'Fraunces', serif;font-weight:500;letter-spacing:-0.01em;color:var(--ink);}
+  p{margin:0 0 1em 0;}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(245,244,239,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .nav-name{font-family:'Fraunces',serif;font-size:16px;font-weight:600;color:var(--ink);text-decoration:none;}
+  .nav-links{display:flex;gap:22px;list-style:none;margin:0;padding:0;}
+  .nav-links a{
+    font-size:14.5px;color:var(--ink-soft);text-decoration:none;
+    padding-bottom:2px;border-bottom:1px solid transparent;transition:border-color .15s,color .15s;
+  }
+  .nav-links a:hover, .nav-links a.active{color:var(--ink);border-color:var(--brass);}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px;}
+  .nav-toggle span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;}
+
+  /* ---------- layout ---------- */
+  main{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  section{padding:64px 0;border-bottom:1px solid var(--rule);}
+  section:last-of-type{border-bottom:none;}
+  .eyebrow-free h2{font-size:22px;margin:0 0 28px 0;}
+
+  /* ---------- hero ---------- */
+  .hero{padding:72px 0 56px 0;position:relative;border-bottom:1px solid var(--rule);}
+  .hero-art{position:absolute;top:-10px;right:-10px;width:230px;height:230px;opacity:0.55;pointer-events:none;}
+  .hero-kicker{font-size:15px;color:var(--brass);font-style:italic;font-family:'Fraunces',serif;margin:0 0 10px 0;}
+  .hero h1{font-size:44px;line-height:1.12;margin:0 0 14px 0;max-width:9.5em;}
+  .hero-role{font-size:18px;color:var(--ink-soft);margin:0 0 22px 0;max-width:30em;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14.5px;color:var(--ink-soft);margin-bottom:22px;}
+  .hero-meta span{display:inline-flex;align-items:center;gap:6px;}
+  .hero-links{display:flex;flex-wrap:wrap;gap:16px;font-size:14.5px;}
+
+  /* ---------- about ---------- */
+  .about p{max-width:58em;}
+  .about strong{color:var(--ink);font-weight:600;}
+  .callout{
+    margin-top:22px;padding:16px 18px;background:var(--paper-dim);
+    border-left:2px solid var(--brass);font-size:15.5px;color:var(--ink-soft);
+  }
+  .callout strong{color:var(--ink);}
+
+  /* ---------- timeline (research experience) ---------- */
+  .timeline{position:relative;margin-left:6px;padding-left:24px;border-left:1px solid var(--rule);}
+  .t-item{position:relative;padding-bottom:34px;}
+  .t-item:last-child{padding-bottom:0;}
+  .t-item::before{
+    content:"";position:absolute;left:-29px;top:5px;width:9px;height:9px;border-radius:50%;
+    background:var(--paper);border:2px solid var(--indigo);
+  }
+  .t-date{font-size:13.5px;color:var(--brass);font-family:'IBM Plex Mono',monospace;margin-bottom:4px;display:block;}
+  .t-title{font-size:17px;font-weight:600;margin:0 0 2px 0;color:var(--ink);}
+  .t-sub{font-size:14.5px;color:var(--ink-soft);margin:0 0 8px 0;}
+  .t-item ul{margin:0;padding-left:18px;}
+  .t-item li{margin-bottom:6px;font-size:15.5px;color:var(--ink-soft);}
+
+  /* ---------- publications ---------- */
+  .pub-list{list-style:none;margin:0;padding:0;counter-reset:pub;}
+  .pub-item{counter-increment:pub;padding:18px 0;border-top:1px solid var(--rule);display:flex;gap:16px;}
+  .pub-item:first-child{border-top:none;}
+  .pub-num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-soft);padding-top:3px;min-width:20px;}
+  .pub-num::before{content:counter(pub);}
+  .pub-title{font-size:15.8px;color:var(--ink);margin:0 0 4px 0;}
+  .pub-meta{font-size:14px;color:var(--ink-soft);}
+  .status{
+    display:inline-block;font-size:12px;font-family:'IBM Plex Mono',monospace;
+    padding:2px 7px;border-radius:3px;margin-left:8px;position:relative;top:-1px;
+  }
+  .status.published{background:#e4ece6;color:#2f6e4a;}
+  .status.review{background:#eee8dd;color:var(--brass);}
+  .status.prep{background:#e7e8ee;color:var(--indigo);}
+
+  /* ---------- projects ---------- */
+  .proj-list{display:flex;flex-direction:column;gap:26px;}
+  .proj-item{padding-bottom:26px;border-bottom:1px solid var(--rule);}
+  .proj-item:last-child{border-bottom:none;padding-bottom:0;}
+  .proj-title{font-size:16.5px;font-weight:600;margin:0 0 6px 0;}
+  .proj-title a{font-weight:500;font-size:13.5px;margin-left:8px;}
+  .proj-desc{font-size:15.2px;color:var(--ink-soft);margin:0;}
+
+  /* ---------- teaching ---------- */
+  .teach-list{list-style:none;margin:0;padding:0;}
+  .teach-list li{padding:10px 0;border-top:1px solid var(--rule);font-size:15.5px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .teach-list li:first-child{border-top:none;}
+  .teach-course{color:var(--ink);}
+  .teach-instr{color:var(--ink-soft);font-size:14px;white-space:nowrap;}
+
+  /* ---------- skills ---------- */
+  .skill-group{margin-bottom:20px;}
+  .skill-group:last-child{margin-bottom:0;}
+  .skill-label{font-size:13.5px;color:var(--ink-soft);margin:0 0 8px 0;}
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink);
+    background:var(--paper-dim);border:1px solid var(--rule);padding:4px 9px;border-radius:3px;
+  }
+
+  /* ---------- honors ---------- */
+  .honor{display:flex;gap:16px;padding:14px 0;border-top:1px solid var(--rule);}
+  .honor:first-child{border-top:none;}
+  .honor-mark{font-family:'Fraunces',serif;font-style:italic;color:var(--brass);font-size:18px;line-height:1.4;}
+  .honor-body b{display:block;font-size:15.5px;color:var(--ink);}
+  .honor-body span{font-size:14px;color:var(--ink-soft);}
+
+  /* ---------- coursework ---------- */
+  .grades{display:grid;grid-template-columns:1fr auto;gap:8px 18px;font-size:14.8px;}
+  .grades .g-name{color:var(--ink-soft);}
+  .grades .g-val{color:var(--ink);font-family:'IBM Plex Mono',monospace;text-align:right;}
+
+  /* ---------- footer ---------- */
+  footer{max-width:var(--maxw);margin:0 auto;padding:40px 24px 60px 24px;font-size:13.5px;color:var(--ink-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+  @media (max-width:640px){
+    body{font-size:16px;}
+    .hero h1{font-size:34px;}
+    .hero-art{width:150px;height:150px;top:-4px;}
+    .nav-links{
+      position:fixed;top:53px;left:0;right:0;background:var(--paper);
+      flex-direction:column;gap:0;border-bottom:1px solid var(--rule);
+      max-height:0;overflow:hidden;transition:max-height .2s ease;
+    }
+    .nav-links.open{max-height:320px;}
+    .nav-links li{border-top:1px solid var(--rule);}
+    .nav-links a{display:block;padding:14px 24px;}
+    .nav-toggle{display:block;}
+    .teach-list li{flex-direction:column;gap:2px;}
+    .pub-item{gap:10px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="nav-name">A. Azarpour</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#more">More</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+
+  <section class="hero" id="about">
+    <svg class="hero-art" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,140 C30,80 45,180 70,110 C95,40 110,160 140,90 C160,45 175,100 200,70" fill="none" stroke="#2b3a67" stroke-width="1.4" opacity="0.55"/>
+      <path d="M0,110 C25,150 50,60 75,130 C100,190 120,60 150,120 C170,155 185,90 200,120" fill="none" stroke="#a97d3f" stroke-width="1.4" opacity="0.5"/>
+      <path d="M0,80 C20,40 55,120 80,60 C105,10 125,110 155,55 C175,20 190,70 200,45" fill="none" stroke="#2b3a67" stroke-width="1" opacity="0.3"/>
+      <circle cx="70" cy="110" r="2.4" fill="#a97d3f"/>
+      <circle cx="140" cy="90" r="2.4" fill="#2b3a67"/>
+      <circle cx="30" cy="80" r="2" fill="#2b3a67"/>
+    </svg>
+    <p class="hero-kicker">Data Mining &amp; Efficient Deep Learning</p>
+    <h1>Amirhosein Azarpour</h1>
+    <p class="hero-role">M.Sc. student building parameter-efficient, interpretable deep learning methods for medical signals and images — with a focus on Kolmogorov-Arnold Networks and their polynomial basis functions.</p>
+    <div class="hero-meta">
+      <span>Tehran, Iran</span>
+      <span><a href="mailto:am.azarpour@mail.sbu.ac.ir">am.azarpour@mail.sbu.ac.ir</a></span>
+    </div>
+    <div class="hero-links">
+      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/amirhoseinazarpour" target="_blank" rel="noopener">GitHub</a>
+      <a href="#" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="#" target="_blank" rel="noopener">ResearchGate</a>
+    </div>
+  </section>
+
+  <section class="about eyebrow-free">
+    <h2>About</h2>
+    <p>I'm a master's student in <strong>Data Mining</strong> at Shahid Beheshti University, Tehran, working under the supervision of <strong>Dr. Kheradpisheh</strong> (GPA ~18.5/20). I completed my B.Sc. in Computer Science at <strong>Amirkabir University of Technology (Tehran Polytechnic)</strong>, where my thesis, supervised by Dr. Shamsi, introduced ORB-SVM — a hybrid pipeline for efficient brain tumor detection from MRI scans.</p>
+    <p>My research centers on making deep learning smaller, more interpretable, and more trustworthy — particularly for medical signals and images. Much of my recent work extends <strong>Kolmogorov-Arnold Networks (KANs)</strong>, replacing their spline-based edges with learnable polynomial families: a recursive second-order basis in <strong>RecKAN</strong>, and Stieltjes-Wigert q-orthogonal polynomials in <strong>SW-KAN</strong>. In parallel, I work on lightweight hybrid architectures for biomedical signal classification and co-author a survey tracing the path from S4 to Mamba across modern state space models.</p>
+    <div class="callout"><strong>Currently:</strong> preparing for the TOEFL and applying my research to phonocardiogram classification and selective state space models at Shahid Beheshti University.</div>
+  </section>
+
+  <section id="research">
+    <h2>Research Experience</h2>
+    <div class="timeline">
+
+      <div class="t-item">
+        <span class="t-date">Apr 2026 – Present</span>
+        <h3 class="t-title">Research Assistant</h3>
+        <p class="t-sub">Supervisor: Dr. Kheradpisheh — Shahid Beheshti University</p>
+        <ul>
+          <li>Co-authored the survey <em>"From S4 to Mamba: A Unified Survey of Modern State Space Models,"</em> covering S4, HiPPO, selective SSMs, and the Mamba/Mamba-2 architectures.</li>
+          <li>Continuing research on Mamba-based selective state space models, extending the survey toward new architectural and application directions.</li>
+        </ul>
+      </div>
+
+      <div class="t-item">
+        <span class="t-date">Mar 2026 – Aug 2026</span>
+        <h3 class="t-title">Research Assistant — CRNN-KAN</h3>
+        <p class="t-sub">Supervisor: Dr. Riahi-Madvar — Shahid Beheshti University</p>
+        <ul>
+          <li>Proposed CRNN-KAN, integrating a CNN-BiLSTM backbone with an EfficientKAN head (SiLU + sinusoidal bases) for robust phonocardiogram (PCG) classification.</li>
+          <li>Achieved competitive AUC across PhysioNet, CirCor, and PASCAL datasets while cutting trainable parameters to 1.31M — a 100× reduction versus VGG16; validated interpretability via Score-CAM.</li>
+        </ul>
+      </div>
+
+      <div class="t-item">
+        <span class="t-date">Jan 2026 – Aug 2026</span>
+        <h3 class="t-title">Independent Researcher — RecKAN &amp; SW-KAN</h3>
+        <p class="t-sub">Collaborative Research, Tehran</p>
+        <ul>
+          <li>Developed RecKAN, defining the KAN basis via a learnable second-order polynomial recurrence recovering Chebyshev, Fibonacci, Pell, and Jacobsthal families; outperforms parameter-matched KAN baselines on image, text, and biomedical time-series classification.</li>
+          <li>Developed SW-KAN, replacing B-splines with Stieltjes-Wigert q-orthogonal polynomials via a smooth exponential-of-tanh domain mapping and an O(N) three-term recurrence, outperforming 18 baseline polynomial KAN variants.</li>
+        </ul>
+      </div>
+
+      <div class="t-item">
+        <span class="t-date">2024 – 2025</span>
+        <h3 class="t-title">Research Assistant — ORB-SVM</h3>
+        <p class="t-sub">Supervisor: Dr. Shamsi — Amirkabir University of Technology</p>
+        <ul>
+          <li>Designed a hybrid ORB feature extraction + SVM classification pipeline, cutting input dimensionality by ~99.5% while retaining diagnostically relevant patterns.</li>
+          <li>Achieved 97.5% classification accuracy on the Br35H dataset, offering a resource-efficient alternative to large deep learning architectures.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Publications &amp; Preprints</h2>
+    <ul class="pub-list">
+      <li class="pub-item">
+        <span class="pub-num"></span>
+        <div>
+          <p class="pub-title">ORB-SVM: An Innovative Hybrid Framework for Efficient Brain Tumor Detection from MRI Scans<span class="status published">Published</span></p>
+          <p class="pub-meta">Azarpour, A. — IEEE, 2025 · IEEE Xplore</p>
+        </div>
+      </li>
+      <li class="pub-item">
+        <span class="pub-num"></span>
+        <div>
+          <p class="pub-title">CRNN-KAN: A Lightweight Hybrid Framework for Robust Phonocardiogram Classification<span class="status review">Under Review</span></p>
+          <p class="pub-meta">Kazemi, S. M., Azarpour, A., Riahi-Madvar, M. — Informatics in Medicine Unlocked</p>
+        </div>
+      </li>
+      <li class="pub-item">
+        <span class="pub-num"></span>
+        <div>
+          <p class="pub-title">SW-KAN: Kolmogorov-Arnold Networks with Stieltjes-Wigert q-Orthogonal Polynomials<span class="status review">Under Review</span></p>
+          <p class="pub-meta">Azarpour, A., Kazemi, S. M. — Applied Mathematics and Computation</p>
+        </div>
+      </li>
+      <li class="pub-item">
+        <span class="pub-num"></span>
+        <div>
+          <p class="pub-title">RecKAN: Kolmogorov-Arnold Networks with a Learnable Recursive Polynomial Basis<span class="status prep">Preprint</span></p>
+          <p class="pub-meta">Azarpour, A. — arXiv, 2026</p>
+        </div>
+      </li>
+      <li class="pub-item">
+        <span class="pub-num"></span>
+        <div>
+          <p class="pub-title">From S4 to Mamba: A Unified Survey of Modern State Space Models<span class="status prep">In Preparation</span></p>
+          <p class="pub-meta">Azarpour, A., Kheradpisheh, S. R. — Manuscript, 2026</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Selected Projects</h2>
+    <div class="proj-list">
+      <div class="proj-item">
+        <p class="proj-title">RecKAN<a href="https://github.com/amirhoseinazarpour?tab=repositories&amp;q=RecKAN" target="_blank" rel="noopener">GitHub ↗</a></p>
+        <p class="proj-desc">Learnable recursive polynomial-basis KAN framework, generalizing Chebyshev, Fibonacci, Pell, and Jacobsthal-type recurrences.</p>
+      </div>
+      <div class="proj-item">
+        <p class="proj-title">SW-KAN<a href="https://github.com/amirhoseinazarpour?tab=repositories&amp;q=SW-KAN" target="_blank" rel="noopener">GitHub ↗</a></p>
+        <p class="proj-desc">Stieltjes-Wigert q-orthogonal polynomial KAN implementation with a learnable q, stable domain mapping, and MNIST / Fashion-MNIST / function-approximation experiments.</p>
+      </div>
+      <div class="proj-item">
+        <p class="proj-title">Behavioral Modeling &amp; Recommendation Systems<a href="https://github.com/amirhoseinazarpour?tab=repositories&amp;q=Instacart" target="_blank" rel="noopener">GitHub ↗</a></p>
+        <p class="proj-desc">End-to-end Instacart recommendation pipeline: behavioral EDA, user/product/user–product feature engineering, PCA/t-SNE/UMAP analysis, and LightGBM/XGBoost reorder prediction evaluated with ROC-AUC and Top-K ranking metrics.</p>
+      </div>
+      <div class="proj-item">
+        <p class="proj-title">Data Mining &amp; Deep Learning Project Handbook<a href="https://github.com/amirhoseinazarpour?tab=repositories&amp;q=Handbook" target="_blank" rel="noopener">GitHub ↗</a></p>
+        <p class="proj-desc">Reproducible deep learning projects spanning leakage-aware ECG anomaly detection, PPO-based GPT-2 sentiment steering and reward-hacking analysis, multivariate weather forecasting, Transformer data-efficiency evaluation, and VAE latent-space attribute manipulation.</p>
+      </div>
+    </div>
+
+    <h2 style="margin-top:44px;font-size:18px;">Other repositories on GitHub</h2>
+    <div class="proj-list">
+      <div class="proj-item">
+        <p class="proj-title">PacMan-MiniMax<a href="https://github.com/amirhoseinazarpour/PacMan-MiniMax" target="_blank" rel="noopener">GitHub ↗</a></p>
+        <p class="proj-desc">Minimax / adversarial-search agent for the classic Pac-Man game. Python.</p>
+      </div>
+      <div class="proj-item">
+        <p class="proj-title">Kakuro-CSP<a href="https://github.com/amirhoseinazarpour/Kakuro-CSP" target="_blank" rel="noopener">GitHub ↗</a></p>
+        <p class="proj-desc">Kakuro puzzle solver formulated and solved as a constraint satisfaction problem. Python.</p>
+      </div>
+      <div class="proj-item">
+        <p class="proj-title">Credit Card Fraud Analysis<a href="https://github.com/amirhoseinazarpour/Credit-Card-Fraud-analysis-with-clustering-and-SVM-Classification" target="_blank" rel="noopener">GitHub ↗</a></p>
+        <p class="proj-desc">Fraud detection combining clustering with SVM classification. Jupyter Notebook.</p>
+      </div>
+      <div class="proj-item">
+        <p class="proj-title">Recognizing Persian Numbers by Classification<a href="https://github.com/amirhoseinazarpour/Recognizing-persian-numbers-by-classification" target="_blank" rel="noopener">GitHub ↗</a></p>
+        <p class="proj-desc">Classification pipeline for recognizing handwritten Persian digits. Jupyter Notebook.</p>
+      </div>
+      <div class="proj-item">
+        <p class="proj-title">Analysis of Player Data<a href="https://github.com/amirhoseinazarpour/Analysis-of-player-data" target="_blank" rel="noopener">GitHub ↗</a></p>
+        <p class="proj-desc">Exploratory data analysis on sports player data. Jupyter Notebook.</p>
+      </div>
+      <div class="proj-item">
+        <p class="proj-title">Front-End Online Book Shop<a href="https://github.com/amirhoseinazarpour/Front-End-ONLINE-BOOK-SHOP" target="_blank" rel="noopener">GitHub ↗</a></p>
+        <p class="proj-desc">Front-end build for an online book shop. HTML.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="teaching">
+    <h2>Teaching &amp; Academic Experience</h2>
+    <ul class="teach-list">
+      <li><span class="teach-course">Head TA — Machine Learning</span><span class="teach-instr">Dr. Riahi-Madvar</span></li>
+      <li><span class="teach-course">Teaching Assistant — Deep Learning</span><span class="teach-instr">Dr. Hajimohammadi</span></li>
+      <li><span class="teach-course">Teaching Assistant — Artificial Intelligence</span><span class="teach-instr">Dr. Ghatee</span></li>
+      <li><span class="teach-course">Teaching Assistant — Image Processing / Computer Graphics</span><span class="teach-instr">Dr. Shamsi</span></li>
+      <li><span class="teach-course">Teaching Assistant — Software Mathematics</span><span class="teach-instr">Dr. Shamsi</span></li>
+      <li><span class="teach-course">Teaching Assistant — Principles of Software Design &amp; Workshop</span><span class="teach-instr">Dr. Ghorbanali</span></li>
+    </ul>
+  </section>
+
+  <section id="more">
+    <h2>Skills</h2>
+    <div class="skill-group">
+      <p class="skill-label">Programming</p>
+      <div class="tag-row"><span class="tag">Python</span><span class="tag">C/C++</span><span class="tag">Java</span><span class="tag">R</span><span class="tag">MATLAB</span></div>
+    </div>
+    <div class="skill-group">
+      <p class="skill-label">Frameworks</p>
+      <div class="tag-row"><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">OpenCV</span></div>
+    </div>
+    <div class="skill-group">
+      <p class="skill-label">Architectures &amp; specializations</p>
+      <div class="tag-row"><span class="tag">KAN</span><span class="tag">Mamba</span><span class="tag">SSM</span><span class="tag">LSTM</span><span class="tag">ViT</span><span class="tag">Deep RL</span><span class="tag">XAI</span></div>
+    </div>
+    <div class="skill-group">
+      <p class="skill-label">Tools</p>
+      <div class="tag-row"><span class="tag">Git</span><span class="tag">CUDA</span><span class="tag">Jupyter</span><span class="tag">LaTeX</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Honors &amp; Awards</h2>
+    <div class="honor">
+      <span class="honor-mark">01</span>
+      <div class="honor-body"><b>Top 0.1% Nationwide</b><span>Iranian University Entrance Exam for B.Sc. in Computer Science, among ~150,000 applicants — 2021</span></div>
+    </div>
+    <div class="honor">
+      <span class="honor-mark">02</span>
+      <div class="honor-body"><b>National Olympiad in Mathematics — Finalist</b><span>National Organization for Development of Exceptional Talents (Sampad) — 2018</span></div>
+    </div>
+    <div class="honor">
+      <span class="honor-mark">03</span>
+      <div class="honor-body"><b>Sampad Member</b><span>National Organization for Development of Exceptional Talents — gifted students' program, secondary education</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Coursework Grades</h2>
+    <div class="grades">
+      <span class="g-name">Artificial Neural Networks</span><span class="g-val">20</span>
+      <span class="g-name">Computer Networks</span><span class="g-val">19.55</span>
+      <span class="g-name">Numerical Linear Algebra</span><span class="g-val">19.2</span>
+      <span class="g-name">Artificial Intelligence</span><span class="g-val">19.01</span>
+      <span class="g-name">Fundamentals of Reinforcement Learning</span><span class="g-val">18.5</span>
+      <span class="g-name">Advanced Machine Learning</span><span class="g-val">18.5</span>
+      <span class="g-name">Principles of Computer Systems</span><span class="g-val">18.5</span>
+      <span class="g-name">Cryptographic Protocols</span><span class="g-val">18.5</span>
+      <span class="g-name">Principles of Operating Systems</span><span class="g-val">18.13</span>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>© 2026 Amirhosein Azarpour</span>
+  <span>Tehran, Iran</span>
+</footer>
+
+<script>
+  // mobile nav toggle
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  toggle.addEventListener('click', function(){
+    links.classList.toggle('open');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ links.classList.remove('open'); });
+  });
+
+  // scroll-spy active link
+  var sections = document.querySelectorAll('main section[id]');
+  var navA = document.querySelectorAll('.nav-links a');
+  var spy = function(){
+    var pos = window.scrollY + 90;
+    sections.forEach(function(sec){
+      var id = sec.getAttribute('id');
+      var link = document.querySelector('.nav-links a[href="#' + id + '"]');
+      if(!link) return;
+      if(pos >= sec.offsetTop && pos < sec.offsetTop + sec.offsetHeight){
+        navA.forEach(function(l){ l.classList.remove('active'); });
+        link.classList.add('active');
+      }
+    });
+  };
+  window.addEventListener('scroll', spy);
+  spy();
+</script>
+
+</body>
+</html>
