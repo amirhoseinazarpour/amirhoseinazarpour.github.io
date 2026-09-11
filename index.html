@@ -115,6 +115,7 @@
   .t-date{font-size:13.5px;color:var(--brass);font-family:'IBM Plex Mono',monospace;margin-bottom:4px;display:block;}
   .t-title{font-size:17px;font-weight:600;margin:0 0 2px 0;color:var(--ink);}
   .t-sub{font-size:14.5px;color:var(--ink-soft);margin:0 0 8px 0;}
+  .t-sub a{color:var(--indigo-soft);}
   .t-item ul{margin:0;padding-left:18px;}
   .t-item li{margin-bottom:6px;font-size:15.5px;color:var(--ink-soft);}
 
@@ -133,14 +134,96 @@
   .status.published{background:#e4ece6;color:#2f6e4a;}
   .status.review{background:#eee8dd;color:var(--brass);}
   .status.prep{background:#e7e8ee;color:var(--indigo);}
+  .pub-link{font-size:13.5px;margin-left:8px;}
 
-  /* ---------- projects ---------- */
-  .proj-list{display:flex;flex-direction:column;gap:26px;}
-  .proj-item{padding-bottom:26px;border-bottom:1px solid var(--rule);}
-  .proj-item:last-child{border-bottom:none;padding-bottom:0;}
-  .proj-title{font-size:16.5px;font-weight:600;margin:0 0 6px 0;}
-  .proj-title a{font-weight:500;font-size:13.5px;margin-left:8px;}
-  .proj-desc{font-size:15.2px;color:var(--ink-soft);margin:0;}
+  /* ---------- projects (cards) ---------- */
+  .proj-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+    margin-top:8px;
+  }
+  .proj-card{
+    background:var(--paper);
+    border:1px solid var(--rule);
+    border-radius:10px;
+    padding:20px 22px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+  }
+  .proj-card:hover{
+    border-color:var(--indigo-soft);
+    box-shadow:0 6px 20px rgba(22,24,29,0.07);
+    transform:translateY(-2px);
+  }
+  .proj-card-title{
+    font-family:'Fraunces',serif;
+    font-size:17px;
+    font-weight:600;
+    margin:0;
+    color:var(--ink);
+    line-height:1.3;
+  }
+  .proj-card-desc{
+    font-size:14.8px;
+    color:var(--ink-soft);
+    margin:0;
+    line-height:1.6;
+    flex-grow:1;
+  }
+  .proj-card-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-top:2px;
+  }
+  .proj-card-tags .tag{
+    font-size:11.5px;
+    padding:3px 8px;
+  }
+  .proj-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:8px;
+    padding-top:12px;
+    border-top:1px solid var(--rule);
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px;
+    font-weight:500;
+    padding:7px 14px;
+    border-radius:6px;
+    text-decoration:none;
+    transition:background .15s ease, color .15s ease, border-color .15s ease;
+    border:1px solid transparent;
+  }
+  .btn-primary{
+    background:var(--indigo);
+    color:var(--paper);
+    border-color:var(--indigo);
+  }
+  .btn-primary:hover{
+    background:var(--brass);
+    border-color:var(--brass);
+    color:var(--paper);
+  }
+  .btn-outline{
+    background:transparent;
+    color:var(--indigo);
+    border-color:var(--rule);
+  }
+  .btn-outline:hover{
+    border-color:var(--indigo);
+    background:var(--paper-dim);
+    color:var(--indigo);
+  }
 
   /* ---------- teaching ---------- */
   .teach-list{list-style:none;margin:0;padding:0;}
@@ -148,6 +231,7 @@
   .teach-list li:first-child{border-top:none;}
   .teach-course{color:var(--ink);}
   .teach-instr{color:var(--ink-soft);font-size:14px;white-space:nowrap;}
+  .teach-instr a{color:var(--indigo-soft);}
 
   /* ---------- skills ---------- */
   .skill-group{margin-bottom:20px;}
@@ -199,6 +283,9 @@
     .nav-toggle{display:block;}
     .teach-list li{flex-direction:column;gap:2px;}
     .pub-item{gap:10px;}
+    .proj-card{padding:16px 18px;}
+    .proj-actions{gap:8px;}
+    .btn{font-size:13px;padding:6px 12px;}
   }
 </style>
 </head>
@@ -239,16 +326,16 @@
       <span><a href="mailto:am.azarpour@mail.sbu.ac.ir">am.azarpour@mail.sbu.ac.ir</a></span>
     </div>
     <div class="hero-links">
-      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/amirhosein-azarpour-0586b029a/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/amirhoseinazarpour" target="_blank" rel="noopener">GitHub</a>
-      <a href="#" target="_blank" rel="noopener">Google Scholar</a>
-      <a href="#" target="_blank" rel="noopener">ResearchGate</a>
+      <a href="https://scholar.google.com/citations?hl=en&user=hl2_9xgAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://www.researchgate.net/profile/Amirhosein-Azarpour/publications" target="_blank" rel="noopener">ResearchGate</a>
     </div>
   </section>
 
   <section class="about eyebrow-free">
     <h2>About</h2>
-    <p>I'm a master's student in <strong>Data Mining</strong> at Shahid Beheshti University, Tehran, working under the supervision of <strong>Dr. Kheradpisheh</strong> (GPA ~18.5/20). I completed my B.Sc. in Computer Science at <strong>Amirkabir University of Technology (Tehran Polytechnic)</strong>, where my thesis, supervised by Dr. Shamsi, introduced ORB-SVM — a hybrid pipeline for efficient brain tumor detection from MRI scans.</p>
+    <p>I'm a master's student in <strong>Data Mining</strong> at Shahid Beheshti University, Tehran, working under the supervision of <a href="https://scholar.google.com/citations?user=ZisNRVMAAAAJ&hl=en" target="_blank" rel="noopener">Dr. Kheradpisheh</a> (GPA ~18.5/20). I completed my B.Sc. in Computer Science at <strong>Amirkabir University of Technology (Tehran Polytechnic)</strong>, where my thesis, supervised by <a href="https://scholar.google.com/citations?user=5zZa0ekAAAAJ&hl=en" target="_blank" rel="noopener">Dr. Shamsi</a>, introduced ORB-SVM — a hybrid pipeline for efficient brain tumor detection from MRI scans.</p>
     <p>My research centers on making deep learning smaller, more interpretable, and more trustworthy — particularly for medical signals and images. Much of my recent work extends <strong>Kolmogorov-Arnold Networks (KANs)</strong>, replacing their spline-based edges with learnable polynomial families: a recursive second-order basis in <strong>RecKAN</strong>, and Stieltjes-Wigert q-orthogonal polynomials in <strong>SW-KAN</strong>. In parallel, I work on lightweight hybrid architectures for biomedical signal classification and co-author a survey tracing the path from S4 to Mamba across modern state space models.</p>
     <div class="callout"><strong>Currently:</strong> preparing for the TOEFL and applying my research to phonocardiogram classification and selective state space models at Shahid Beheshti University.</div>
   </section>
@@ -260,7 +347,7 @@
       <div class="t-item">
         <span class="t-date">Apr 2026 – Present</span>
         <h3 class="t-title">Research Assistant</h3>
-        <p class="t-sub">Supervisor: Dr. Kheradpisheh — Shahid Beheshti University</p>
+        <p class="t-sub">Supervisor: <a href="https://scholar.google.com/citations?user=ZisNRVMAAAAJ&hl=en" target="_blank" rel="noopener">Dr. Kheradpisheh</a> — Shahid Beheshti University</p>
         <ul>
           <li>Co-authored the survey <em>"From S4 to Mamba: A Unified Survey of Modern State Space Models,"</em> covering S4, HiPPO, selective SSMs, and the Mamba/Mamba-2 architectures.</li>
           <li>Continuing research on Mamba-based selective state space models, extending the survey toward new architectural and application directions.</li>
@@ -270,7 +357,7 @@
       <div class="t-item">
         <span class="t-date">Mar 2026 – Aug 2026</span>
         <h3 class="t-title">Research Assistant — CRNN-KAN</h3>
-        <p class="t-sub">Supervisor: Dr. Riahi-Madvar — Shahid Beheshti University</p>
+        <p class="t-sub">Supervisor: <a href="https://scholar.google.com/citations?user=t0Ct8QoAAAAJ&hl=en" target="_blank" rel="noopener">Dr. Riahi-Madvar</a> — Shahid Beheshti University</p>
         <ul>
           <li>Proposed CRNN-KAN, integrating a CNN-BiLSTM backbone with an EfficientKAN head (SiLU + sinusoidal bases) for robust phonocardiogram (PCG) classification.</li>
           <li>Achieved competitive AUC across PhysioNet, CirCor, and PASCAL datasets while cutting trainable parameters to 1.31M — a 100× reduction versus VGG16; validated interpretability via Score-CAM.</li>
@@ -290,7 +377,7 @@
       <div class="t-item">
         <span class="t-date">2024 – 2025</span>
         <h3 class="t-title">Research Assistant — ORB-SVM</h3>
-        <p class="t-sub">Supervisor: Dr. Shamsi — Amirkabir University of Technology</p>
+        <p class="t-sub">Supervisor: <a href="https://scholar.google.com/citations?user=5zZa0ekAAAAJ&hl=en" target="_blank" rel="noopener">Dr. Shamsi</a> — Amirkabir University of Technology</p>
         <ul>
           <li>Designed a hybrid ORB feature extraction + SVM classification pipeline, cutting input dimensionality by ~99.5% while retaining diagnostically relevant patterns.</li>
           <li>Achieved 97.5% classification accuracy on the Br35H dataset, offering a resource-efficient alternative to large deep learning architectures.</li>
@@ -306,15 +393,15 @@
       <li class="pub-item">
         <span class="pub-num"></span>
         <div>
-          <p class="pub-title">ORB-SVM: An Innovative Hybrid Framework for Efficient Brain Tumor Detection from MRI Scans<span class="status published">Published</span></p>
-          <p class="pub-meta">Azarpour, A. — IEEE, 2025 · IEEE Xplore</p>
+          <p class="pub-title">ORB-SVM: An Innovative Hybrid Framework for Efficient Brain Tumor Detection from MRI Scans<span class="status published">Published</span><a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/11620776/" target="_blank" rel="noopener">IEEE Xplore ↗</a></p>
+          <p class="pub-meta">Azarpour, A. — IEEE, 2025</p>
         </div>
       </li>
       <li class="pub-item">
         <span class="pub-num"></span>
         <div>
           <p class="pub-title">CRNN-KAN: A Lightweight Hybrid Framework for Robust Phonocardiogram Classification<span class="status review">Under Review</span></p>
-          <p class="pub-meta">Kazemi, S. M., Azarpour, A., Riahi-Madvar, M. — Informatics in Medicine Unlocked</p>
+          <p class="pub-meta">Kazemi, S. M., Azarpour, A., <a href="https://scholar.google.com/citations?user=t0Ct8QoAAAAJ&hl=en" target="_blank" rel="noopener">Riahi-Madvar, M.</a> — Informatics in Medicine Unlocked</p>
         </div>
       </li>
       <li class="pub-item">
@@ -327,7 +414,7 @@
       <li class="pub-item">
         <span class="pub-num"></span>
         <div>
-          <p class="pub-title">RecKAN: Kolmogorov-Arnold Networks with a Learnable Recursive Polynomial Basis<span class="status prep">Preprint</span></p>
+          <p class="pub-title">RecKAN: Kolmogorov-Arnold Networks with a Learnable Recursive Polynomial Basis<span class="status prep">Preprint</span><a class="pub-link" href="https://arxiv.org/pdf/2609.01729" target="_blank" rel="noopener">arXiv ↗</a></p>
           <p class="pub-meta">Azarpour, A. — arXiv, 2026</p>
         </div>
       </li>
@@ -335,7 +422,7 @@
         <span class="pub-num"></span>
         <div>
           <p class="pub-title">From S4 to Mamba: A Unified Survey of Modern State Space Models<span class="status prep">In Preparation</span></p>
-          <p class="pub-meta">Azarpour, A., Kheradpisheh, S. R. — Manuscript, 2026</p>
+          <p class="pub-meta">Azarpour, A., <a href="https://scholar.google.com/citations?user=ZisNRVMAAAAJ&hl=en" target="_blank" rel="noopener">Kheradpisheh, S. R.</a> — Manuscript, 2026</p>
         </div>
       </li>
     </ul>
@@ -343,63 +430,136 @@
 
   <section id="projects">
     <h2>Selected Projects</h2>
-    <div class="proj-list">
-      <div class="proj-item">
-        <p class="proj-title">RecKAN<a href="https://github.com/amirhoseinazarpour?tab=repositories&amp;q=RecKAN" target="_blank" rel="noopener">GitHub ↗</a></p>
-        <p class="proj-desc">Learnable recursive polynomial-basis KAN framework, generalizing Chebyshev, Fibonacci, Pell, and Jacobsthal-type recurrences.</p>
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <p class="proj-card-title">RecKAN</p>
+        <p class="proj-card-desc">Learnable recursive polynomial-basis KAN framework, generalizing Chebyshev, Fibonacci, Pell, and Jacobsthal-type recurrences.</p>
+        <div class="proj-card-tags">
+          <span class="tag">KAN</span><span class="tag">PyTorch</span><span class="tag">Research</span>
+        </div>
+        <div class="proj-actions">
+          <a class="btn btn-primary" href="https://arxiv.org/pdf/2609.01729" target="_blank" rel="noopener">Read Paper ↗</a>
+          <a class="btn btn-outline" href="https://github.com/amirhoseinazarpour/RecKAN-Kolmogorov-Arnold-Networks-with-a-Learnable-Recursive-Polynomial-Basis" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
       </div>
-      <div class="proj-item">
-        <p class="proj-title">SW-KAN<a href="https://github.com/amirhoseinazarpour?tab=repositories&amp;q=SW-KAN" target="_blank" rel="noopener">GitHub ↗</a></p>
-        <p class="proj-desc">Stieltjes-Wigert q-orthogonal polynomial KAN implementation with a learnable q, stable domain mapping, and MNIST / Fashion-MNIST / function-approximation experiments.</p>
+
+      <div class="proj-card">
+        <p class="proj-card-title">SW-KAN</p>
+        <p class="proj-card-desc">Stieltjes-Wigert q-orthogonal polynomial KAN implementation with a learnable q, stable domain mapping, and MNIST / Fashion-MNIST / function-approximation experiments.</p>
+        <div class="proj-card-tags">
+          <span class="tag">KAN</span><span class="tag">q-Orthogonal</span><span class="tag">PyTorch</span>
+        </div>
+        <div class="proj-actions">
+          <a class="btn btn-outline" href="https://github.com/amirhoseinazarpour/SW-KAN" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
       </div>
-      <div class="proj-item">
-        <p class="proj-title">Behavioral Modeling &amp; Recommendation Systems<a href="https://github.com/amirhoseinazarpour?tab=repositories&amp;q=Instacart" target="_blank" rel="noopener">GitHub ↗</a></p>
-        <p class="proj-desc">End-to-end Instacart recommendation pipeline: behavioral EDA, user/product/user–product feature engineering, PCA/t-SNE/UMAP analysis, and LightGBM/XGBoost reorder prediction evaluated with ROC-AUC and Top-K ranking metrics.</p>
+
+      <div class="proj-card">
+        <p class="proj-card-title">Behavioral Modeling &amp; Recommendation Systems</p>
+        <p class="proj-card-desc">End-to-end Instacart recommendation pipeline: behavioral EDA, user/product/user–product feature engineering, PCA/t-SNE/UMAP analysis, and LightGBM/XGBoost reorder prediction evaluated with ROC-AUC and Top-K ranking metrics.</p>
+        <div class="proj-card-tags">
+          <span class="tag">Data Mining</span><span class="tag">LightGBM</span><span class="tag">XGBoost</span>
+        </div>
+        <div class="proj-actions">
+          <a class="btn btn-outline" href="https://github.com/amirhoseinazarpour/Behavioral-Modeling-and-Recommendation-Systems" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
       </div>
-      <div class="proj-item">
-        <p class="proj-title">Data Mining &amp; Deep Learning Project Handbook<a href="https://github.com/amirhoseinazarpour?tab=repositories&amp;q=Handbook" target="_blank" rel="noopener">GitHub ↗</a></p>
-        <p class="proj-desc">Reproducible deep learning projects spanning leakage-aware ECG anomaly detection, PPO-based GPT-2 sentiment steering and reward-hacking analysis, multivariate weather forecasting, Transformer data-efficiency evaluation, and VAE latent-space attribute manipulation.</p>
+
+      <div class="proj-card">
+        <p class="proj-card-title">Data Mining &amp; Deep Learning Project Handbook</p>
+        <p class="proj-card-desc">Reproducible deep learning projects spanning leakage-aware ECG anomaly detection, PPO-based GPT-2 sentiment steering and reward-hacking analysis, multivariate weather forecasting, Transformer data-efficiency evaluation, and VAE latent-space attribute manipulation.</p>
+        <div class="proj-card-tags">
+          <span class="tag">Deep Learning</span><span class="tag">PPO</span><span class="tag">Transformer</span><span class="tag">VAE</span>
+        </div>
+        <div class="proj-actions">
+          <a class="btn btn-outline" href="https://github.com/amirhoseinazarpour/Data-Mining-Deep-Learning-Project-Handbook" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
       </div>
+
     </div>
 
     <h2 style="margin-top:44px;font-size:18px;">Other repositories on GitHub</h2>
-    <div class="proj-list">
-      <div class="proj-item">
-        <p class="proj-title">PacMan-MiniMax<a href="https://github.com/amirhoseinazarpour/PacMan-MiniMax" target="_blank" rel="noopener">GitHub ↗</a></p>
-        <p class="proj-desc">Minimax / adversarial-search agent for the classic Pac-Man game. Python.</p>
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <p class="proj-card-title">PacMan-MiniMax</p>
+        <p class="proj-card-desc">Minimax / adversarial-search agent for the classic Pac-Man game.</p>
+        <div class="proj-card-tags">
+          <span class="tag">Python</span><span class="tag">AI</span>
+        </div>
+        <div class="proj-actions">
+          <a class="btn btn-outline" href="https://github.com/amirhoseinazarpour/PacMan-MiniMax" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
       </div>
-      <div class="proj-item">
-        <p class="proj-title">Kakuro-CSP<a href="https://github.com/amirhoseinazarpour/Kakuro-CSP" target="_blank" rel="noopener">GitHub ↗</a></p>
-        <p class="proj-desc">Kakuro puzzle solver formulated and solved as a constraint satisfaction problem. Python.</p>
+
+      <div class="proj-card">
+        <p class="proj-card-title">Kakuro-CSP</p>
+        <p class="proj-card-desc">Kakuro puzzle solver formulated and solved as a constraint satisfaction problem.</p>
+        <div class="proj-card-tags">
+          <span class="tag">Python</span><span class="tag">CSP</span>
+        </div>
+        <div class="proj-actions">
+          <a class="btn btn-outline" href="https://github.com/amirhoseinazarpour/Kakuro-CSP" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
       </div>
-      <div class="proj-item">
-        <p class="proj-title">Credit Card Fraud Analysis<a href="https://github.com/amirhoseinazarpour/Credit-Card-Fraud-analysis-with-clustering-and-SVM-Classification" target="_blank" rel="noopener">GitHub ↗</a></p>
-        <p class="proj-desc">Fraud detection combining clustering with SVM classification. Jupyter Notebook.</p>
+
+      <div class="proj-card">
+        <p class="proj-card-title">Credit Card Fraud Analysis</p>
+        <p class="proj-card-desc">Fraud detection combining clustering with SVM classification.</p>
+        <div class="proj-card-tags">
+          <span class="tag">Jupyter</span><span class="tag">SVM</span><span class="tag">Clustering</span>
+        </div>
+        <div class="proj-actions">
+          <a class="btn btn-outline" href="https://github.com/amirhoseinazarpour/Credit-Card-Fraud-analysis-with-clustering-and-SVM-Classification" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
       </div>
-      <div class="proj-item">
-        <p class="proj-title">Recognizing Persian Numbers by Classification<a href="https://github.com/amirhoseinazarpour/Recognizing-persian-numbers-by-classification" target="_blank" rel="noopener">GitHub ↗</a></p>
-        <p class="proj-desc">Classification pipeline for recognizing handwritten Persian digits. Jupyter Notebook.</p>
+
+      <div class="proj-card">
+        <p class="proj-card-title">Recognizing Persian Numbers by Classification</p>
+        <p class="proj-card-desc">Classification pipeline for recognizing handwritten Persian digits.</p>
+        <div class="proj-card-tags">
+          <span class="tag">Jupyter</span><span class="tag">Classification</span>
+        </div>
+        <div class="proj-actions">
+          <a class="btn btn-outline" href="https://github.com/amirhoseinazarpour/Recognizing-persian-numbers-by-classification" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
       </div>
-      <div class="proj-item">
-        <p class="proj-title">Analysis of Player Data<a href="https://github.com/amirhoseinazarpour/Analysis-of-player-data" target="_blank" rel="noopener">GitHub ↗</a></p>
-        <p class="proj-desc">Exploratory data analysis on sports player data. Jupyter Notebook.</p>
+
+      <div class="proj-card">
+        <p class="proj-card-title">Analysis of Player Data</p>
+        <p class="proj-card-desc">Exploratory data analysis on sports player data.</p>
+        <div class="proj-card-tags">
+          <span class="tag">Jupyter</span><span class="tag">EDA</span>
+        </div>
+        <div class="proj-actions">
+          <a class="btn btn-outline" href="https://github.com/amirhoseinazarpour/Analysis-of-player-data" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
       </div>
-      <div class="proj-item">
-        <p class="proj-title">Front-End Online Book Shop<a href="https://github.com/amirhoseinazarpour/Front-End-ONLINE-BOOK-SHOP" target="_blank" rel="noopener">GitHub ↗</a></p>
-        <p class="proj-desc">Front-end build for an online book shop. HTML.</p>
+
+      <div class="proj-card">
+        <p class="proj-card-title">Front-End Online Book Shop</p>
+        <p class="proj-card-desc">Front-end build for an online book shop.</p>
+        <div class="proj-card-tags">
+          <span class="tag">HTML</span><span class="tag">Front-End</span>
+        </div>
+        <div class="proj-actions">
+          <a class="btn btn-outline" href="https://github.com/amirhoseinazarpour/Front-End-ONLINE-BOOK-SHOP" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
       </div>
+
     </div>
   </section>
 
   <section id="teaching">
     <h2>Teaching &amp; Academic Experience</h2>
     <ul class="teach-list">
-      <li><span class="teach-course">Head TA — Machine Learning</span><span class="teach-instr">Dr. Riahi-Madvar</span></li>
-      <li><span class="teach-course">Teaching Assistant — Deep Learning</span><span class="teach-instr">Dr. Hajimohammadi</span></li>
-      <li><span class="teach-course">Teaching Assistant — Artificial Intelligence</span><span class="teach-instr">Dr. Ghatee</span></li>
-      <li><span class="teach-course">Teaching Assistant — Image Processing / Computer Graphics</span><span class="teach-instr">Dr. Shamsi</span></li>
-      <li><span class="teach-course">Teaching Assistant — Software Mathematics</span><span class="teach-instr">Dr. Shamsi</span></li>
-      <li><span class="teach-course">Teaching Assistant — Principles of Software Design &amp; Workshop</span><span class="teach-instr">Dr. Ghorbanali</span></li>
+      <li><span class="teach-course">Head TA — Machine Learning</span><span class="teach-instr"><a href="https://scholar.google.com/citations?user=t0Ct8QoAAAAJ&hl=en" target="_blank" rel="noopener">Dr. Riahi-Madvar</a></span></li>
+      <li><span class="teach-course">Teaching Assistant — Deep Learning</span><span class="teach-instr"><a href="https://scholar.google.com/citations?user=6Is4zNIAAAAJ&hl=en" target="_blank" rel="noopener">Dr. Hajimohammadi</a></span></li>
+      <li><span class="teach-course">Teaching Assistant — Artificial Intelligence</span><span class="teach-instr"><a href="https://scholar.google.com/citations?user=b7lfEJwAAAAJ&hl=en" target="_blank" rel="noopener">Dr. Ghatee</a></span></li>
+      <li><span class="teach-course">Teaching Assistant — Image Processing / Computer Graphics</span><span class="teach-instr"><a href="https://scholar.google.com/citations?user=5zZa0ekAAAAJ&hl=en" target="_blank" rel="noopener">Dr. Shamsi</a></span></li>
+      <li><span class="teach-course">Teaching Assistant — Software Mathematics</span><span class="teach-instr"><a href="https://scholar.google.com/citations?user=5zZa0ekAAAAJ&hl=en" target="_blank" rel="noopener">Dr. Shamsi</a></span></li>
+      <li><span class="teach-course">Teaching Assistant — Principles of Software Design &amp; Workshop</span><span class="teach-instr"><a href="https://scholar.google.com/citations?user=s0rc9DQAAAAJ&hl=en" target="_blank" rel="noopener">Dr. Ghorbanali</a></span></li>
     </ul>
   </section>
 
