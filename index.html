@@ -50,9 +50,9 @@
     display:flex;align-items:center;justify-content:space-between;
   }
   .nav-name{font-family:'Fraunces',serif;font-size:16px;font-weight:600;color:var(--ink);text-decoration:none;}
-  .nav-links{display:flex;gap:22px;list-style:none;margin:0;padding:0;}
+  .nav-links{display:flex;gap:20px;list-style:none;margin:0;padding:0;}
   .nav-links a{
-    font-size:14.5px;color:var(--ink-soft);text-decoration:none;
+    font-size:14px;color:var(--ink-soft);text-decoration:none;
     padding-bottom:2px;border-bottom:1px solid transparent;transition:border-color .15s,color .15s;
   }
   .nav-links a:hover, .nav-links a.active{color:var(--ink);border-color:var(--brass);}
@@ -93,7 +93,15 @@
   .hero-role{font-size:18px;color:var(--ink-soft);margin:0 0 22px 0;}
   .hero-meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14.5px;color:var(--ink-soft);margin-bottom:22px;}
   .hero-meta span{display:inline-flex;align-items:center;gap:6px;}
-  .hero-links{display:flex;flex-wrap:wrap;gap:16px;font-size:14.5px;}
+  .hero-links{display:flex;flex-wrap:wrap;gap:16px;font-size:14.5px;align-items:center;}
+  .hero-cv-btn{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--indigo);color:var(--paper);
+    font-size:13.5px;font-weight:500;
+    padding:7px 14px;border-radius:6px;text-decoration:none;
+    transition:background .15s ease;
+  }
+  .hero-cv-btn:hover{background:var(--brass);color:var(--paper);}
 
   /* ---------- about ---------- */
   .about p{max-width:58em;}
@@ -137,20 +145,10 @@
   .pub-link{font-size:13.5px;margin-left:8px;}
 
   /* ---------- projects (cards) ---------- */
-  .proj-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:16px;
-    margin-top:8px;
-  }
+  .proj-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:8px;}
   .proj-card{
-    background:var(--paper);
-    border:1px solid var(--rule);
-    border-radius:10px;
-    padding:20px 22px;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
+    background:var(--paper);border:1px solid var(--rule);border-radius:10px;
+    padding:20px 22px;display:flex;flex-direction:column;gap:10px;
     transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease;
   }
   .proj-card:hover{
@@ -158,72 +156,50 @@
     box-shadow:0 6px 20px rgba(22,24,29,0.07);
     transform:translateY(-2px);
   }
-  .proj-card-title{
-    font-family:'Fraunces',serif;
-    font-size:17px;
-    font-weight:600;
-    margin:0;
-    color:var(--ink);
-    line-height:1.3;
-  }
-  .proj-card-desc{
-    font-size:14.8px;
-    color:var(--ink-soft);
-    margin:0;
-    line-height:1.6;
-    flex-grow:1;
-  }
-  .proj-card-tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:6px;
-    margin-top:2px;
-  }
-  .proj-card-tags .tag{
-    font-size:11.5px;
-    padding:3px 8px;
-  }
+  .proj-card-title{font-family:'Fraunces',serif;font-size:17px;font-weight:600;margin:0;color:var(--ink);line-height:1.3;}
+  .proj-card-desc{font-size:14.8px;color:var(--ink-soft);margin:0;line-height:1.6;flex-grow:1;}
+  .proj-card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px;}
+  .proj-card-tags .tag{font-size:11.5px;padding:3px 8px;}
   .proj-actions{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-top:8px;
-    padding-top:12px;
-    border-top:1px solid var(--rule);
+    display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;
+    padding-top:12px;border-top:1px solid var(--rule);
   }
   .btn{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    font-family:'IBM Plex Sans',sans-serif;
-    font-size:13.5px;
-    font-weight:500;
-    padding:7px 14px;
-    border-radius:6px;
-    text-decoration:none;
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;font-weight:500;
+    padding:7px 14px;border-radius:6px;text-decoration:none;
     transition:background .15s ease, color .15s ease, border-color .15s ease;
     border:1px solid transparent;
   }
-  .btn-primary{
-    background:var(--indigo);
-    color:var(--paper);
-    border-color:var(--indigo);
-  }
-  .btn-primary:hover{
-    background:var(--brass);
-    border-color:var(--brass);
-    color:var(--paper);
-  }
-  .btn-outline{
-    background:transparent;
-    color:var(--indigo);
-    border-color:var(--rule);
-  }
-  .btn-outline:hover{
-    border-color:var(--indigo);
+  .btn-primary{background:var(--indigo);color:var(--paper);border-color:var(--indigo);}
+  .btn-primary:hover{background:var(--brass);border-color:var(--brass);color:var(--paper);}
+  .btn-outline{background:transparent;color:var(--indigo);border-color:var(--rule);}
+  .btn-outline:hover{border-color:var(--indigo);background:var(--paper-dim);color:var(--indigo);}
+
+  /* ---------- CV section ---------- */
+  .cv-box{
     background:var(--paper-dim);
-    color:var(--indigo);
+    border:1px solid var(--rule);
+    border-radius:12px;
+    padding:28px 30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+    transition:border-color .18s ease, box-shadow .18s ease;
   }
+  .cv-box:hover{
+    border-color:var(--indigo-soft);
+    box-shadow:0 6px 20px rgba(22,24,29,0.07);
+  }
+  .cv-box-text{flex:1;min-width:220px;}
+  .cv-box-title{
+    font-family:'Fraunces',serif;
+    font-size:19px;font-weight:600;margin:0 0 6px 0;color:var(--ink);
+  }
+  .cv-box-desc{font-size:14.8px;color:var(--ink-soft);margin:0;line-height:1.6;}
+  .cv-box-action{display:flex;gap:10px;flex-wrap:wrap;}
 
   /* ---------- teaching ---------- */
   .teach-list{list-style:none;margin:0;padding:0;}
@@ -263,21 +239,16 @@
     .hero h1{font-size:34px;}
     .hero-art{width:150px;height:150px;top:-4px;opacity:0.25;}
     .hero-photo{
-      position:static;
-      display:block;
-      width:180px;
-      height:180px;
-      margin:0 0 20px 0;
+      position:static;display:block;
+      width:180px;height:180px;margin:0 0 20px 0;
     }
-    .hero h1, .hero-role, .hero-meta, .hero-links, .hero-kicker{
-      max-width:100%;
-    }
+    .hero h1, .hero-role, .hero-meta, .hero-links, .hero-kicker{max-width:100%;}
     .nav-links{
       position:fixed;top:53px;left:0;right:0;background:var(--paper);
       flex-direction:column;gap:0;border-bottom:1px solid var(--rule);
       max-height:0;overflow:hidden;transition:max-height .2s ease;
     }
-    .nav-links.open{max-height:320px;}
+    .nav-links.open{max-height:400px;}
     .nav-links li{border-top:1px solid var(--rule);}
     .nav-links a{display:block;padding:14px 24px;}
     .nav-toggle{display:block;}
@@ -286,6 +257,9 @@
     .proj-card{padding:16px 18px;}
     .proj-actions{gap:8px;}
     .btn{font-size:13px;padding:6px 12px;}
+    .cv-box{padding:22px 20px;flex-direction:column;align-items:flex-start;}
+    .cv-box-action{width:100%;}
+    .cv-box-action .btn{flex:1;justify-content:center;}
   }
 </style>
 </head>
@@ -300,6 +274,7 @@
       <li><a href="#research">Research</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#cv">CV</a></li>
       <li><a href="#teaching">Teaching</a></li>
       <li><a href="#more">More</a></li>
     </ul>
@@ -330,6 +305,7 @@
       <a href="https://github.com/amirhoseinazarpour" target="_blank" rel="noopener">GitHub</a>
       <a href="https://scholar.google.com/citations?hl=en&user=hl2_9xgAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
       <a href="https://www.researchgate.net/profile/Amirhosein-Azarpour/publications" target="_blank" rel="noopener">ResearchGate</a>
+      <a class="hero-cv-btn" href="cv.pdf" target="_blank" rel="noopener">Download CV ↓</a>
     </div>
   </section>
 
@@ -346,9 +322,11 @@
 
       <div class="t-item">
         <span class="t-date">Apr 2026 – Present</span>
-        <h3 class="t-title">Research Assistant</h3>
+        <h3 class="t-title">Research Assistant — RecKAN, SW-KAN &amp; SSM Survey</h3>
         <p class="t-sub">Supervisor: <a href="https://scholar.google.com/citations?user=ZisNRVMAAAAJ&hl=en" target="_blank" rel="noopener">Dr. Kheradpisheh</a> — Shahid Beheshti University</p>
         <ul>
+          <li>Developed RecKAN, defining the KAN basis via a learnable second-order polynomial recurrence that recovers Chebyshev, Fibonacci, Pell, and Jacobsthal families; outperforms parameter-matched KAN baselines on image, text, and biomedical time-series classification.</li>
+          <li>Developed SW-KAN, replacing B-splines with Stieltjes-Wigert q-orthogonal polynomials via a smooth exponential-of-tanh domain mapping and an O(N) three-term recurrence, outperforming 18 baseline polynomial KAN variants.</li>
           <li>Co-authored the survey <em>"From S4 to Mamba: A Unified Survey of Modern State Space Models,"</em> covering S4, HiPPO, selective SSMs, and the Mamba/Mamba-2 architectures.</li>
           <li>Continuing research on Mamba-based selective state space models, extending the survey toward new architectural and application directions.</li>
         </ul>
@@ -361,16 +339,6 @@
         <ul>
           <li>Proposed CRNN-KAN, integrating a CNN-BiLSTM backbone with an EfficientKAN head (SiLU + sinusoidal bases) for robust phonocardiogram (PCG) classification.</li>
           <li>Achieved competitive AUC across PhysioNet, CirCor, and PASCAL datasets while cutting trainable parameters to 1.31M — a 100× reduction versus VGG16; validated interpretability via Score-CAM.</li>
-        </ul>
-      </div>
-
-      <div class="t-item">
-        <span class="t-date">Jan 2026 – Aug 2026</span>
-        <h3 class="t-title">Independent Researcher — RecKAN &amp; SW-KAN</h3>
-        <p class="t-sub">Collaborative Research, Tehran</p>
-        <ul>
-          <li>Developed RecKAN, defining the KAN basis via a learnable second-order polynomial recurrence recovering Chebyshev, Fibonacci, Pell, and Jacobsthal families; outperforms parameter-matched KAN baselines on image, text, and biomedical time-series classification.</li>
-          <li>Developed SW-KAN, replacing B-splines with Stieltjes-Wigert q-orthogonal polynomials via a smooth exponential-of-tanh domain mapping and an O(N) three-term recurrence, outperforming 18 baseline polynomial KAN variants.</li>
         </ul>
       </div>
 
@@ -485,9 +453,7 @@
       <div class="proj-card">
         <p class="proj-card-title">PacMan-MiniMax</p>
         <p class="proj-card-desc">Minimax / adversarial-search agent for the classic Pac-Man game.</p>
-        <div class="proj-card-tags">
-          <span class="tag">Python</span><span class="tag">AI</span>
-        </div>
+        <div class="proj-card-tags"><span class="tag">Python</span><span class="tag">AI</span></div>
         <div class="proj-actions">
           <a class="btn btn-outline" href="https://github.com/amirhoseinazarpour/PacMan-MiniMax" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
@@ -496,9 +462,7 @@
       <div class="proj-card">
         <p class="proj-card-title">Kakuro-CSP</p>
         <p class="proj-card-desc">Kakuro puzzle solver formulated and solved as a constraint satisfaction problem.</p>
-        <div class="proj-card-tags">
-          <span class="tag">Python</span><span class="tag">CSP</span>
-        </div>
+        <div class="proj-card-tags"><span class="tag">Python</span><span class="tag">CSP</span></div>
         <div class="proj-actions">
           <a class="btn btn-outline" href="https://github.com/amirhoseinazarpour/Kakuro-CSP" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
@@ -507,9 +471,7 @@
       <div class="proj-card">
         <p class="proj-card-title">Credit Card Fraud Analysis</p>
         <p class="proj-card-desc">Fraud detection combining clustering with SVM classification.</p>
-        <div class="proj-card-tags">
-          <span class="tag">Jupyter</span><span class="tag">SVM</span><span class="tag">Clustering</span>
-        </div>
+        <div class="proj-card-tags"><span class="tag">Jupyter</span><span class="tag">SVM</span><span class="tag">Clustering</span></div>
         <div class="proj-actions">
           <a class="btn btn-outline" href="https://github.com/amirhoseinazarpour/Credit-Card-Fraud-analysis-with-clustering-and-SVM-Classification" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
@@ -518,9 +480,7 @@
       <div class="proj-card">
         <p class="proj-card-title">Recognizing Persian Numbers by Classification</p>
         <p class="proj-card-desc">Classification pipeline for recognizing handwritten Persian digits.</p>
-        <div class="proj-card-tags">
-          <span class="tag">Jupyter</span><span class="tag">Classification</span>
-        </div>
+        <div class="proj-card-tags"><span class="tag">Jupyter</span><span class="tag">Classification</span></div>
         <div class="proj-actions">
           <a class="btn btn-outline" href="https://github.com/amirhoseinazarpour/Recognizing-persian-numbers-by-classification" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
@@ -529,9 +489,7 @@
       <div class="proj-card">
         <p class="proj-card-title">Analysis of Player Data</p>
         <p class="proj-card-desc">Exploratory data analysis on sports player data.</p>
-        <div class="proj-card-tags">
-          <span class="tag">Jupyter</span><span class="tag">EDA</span>
-        </div>
+        <div class="proj-card-tags"><span class="tag">Jupyter</span><span class="tag">EDA</span></div>
         <div class="proj-actions">
           <a class="btn btn-outline" href="https://github.com/amirhoseinazarpour/Analysis-of-player-data" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
@@ -540,14 +498,27 @@
       <div class="proj-card">
         <p class="proj-card-title">Front-End Online Book Shop</p>
         <p class="proj-card-desc">Front-end build for an online book shop.</p>
-        <div class="proj-card-tags">
-          <span class="tag">HTML</span><span class="tag">Front-End</span>
-        </div>
+        <div class="proj-card-tags"><span class="tag">HTML</span><span class="tag">Front-End</span></div>
         <div class="proj-actions">
           <a class="btn btn-outline" href="https://github.com/amirhoseinazarpour/Front-End-ONLINE-BOOK-SHOP" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ============ CV SECTION ============ -->
+  <section id="cv">
+    <h2>Curriculum Vitae</h2>
+    <div class="cv-box">
+      <div class="cv-box-text">
+        <p class="cv-box-title">Full Academic CV</p>
+        <p class="cv-box-desc">Complete record of education, publications, research experience, teaching, technical skills, coursework, honors, and extracurricular activities — updated 2026.</p>
+      </div>
+      <div class="cv-box-action">
+        <a class="btn btn-primary" href="cv.pdf" target="_blank" rel="noopener">View PDF ↗</a>
+        <a class="btn btn-outline" href="cv.pdf" download>Download ↓</a>
+      </div>
     </div>
   </section>
 
@@ -581,6 +552,10 @@
       <p class="skill-label">Tools</p>
       <div class="tag-row"><span class="tag">Git</span><span class="tag">CUDA</span><span class="tag">Jupyter</span><span class="tag">LaTeX</span></div>
     </div>
+    <div class="skill-group">
+      <p class="skill-label">Languages</p>
+      <div class="tag-row"><span class="tag">Persian (Native)</span><span class="tag">English (Fluent — TOEFL prep)</span></div>
+    </div>
   </section>
 
   <section>
@@ -596,6 +571,14 @@
     <div class="honor">
       <span class="honor-mark">03</span>
       <div class="honor-body"><b>Sampad Member</b><span>National Organization for Development of Exceptional Talents — gifted students' program, secondary education</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Volunteering &amp; Extracurricular</h2>
+    <div class="honor">
+      <span class="honor-mark">01</span>
+      <div class="honor-body"><b>Executive Committee Member — AUT Trade Challenge Event</b><span>Supervisor: <a href="https://scholar.google.com/citations?user=bmu4g48AAAAJ&hl=en" target="_blank" rel="noopener">Dr. Mohades</a> — Amirkabir University of Technology — Sep 2023 – Sep 2024</span></div>
     </div>
   </section>
 
